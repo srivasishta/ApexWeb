@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community Hub</title>
+    <title>Apex Forage</title> <link rel="icon" type="image/png" href="images/hh1.png"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         * {
@@ -61,12 +61,12 @@
             color: #7DF9FF; /* Updated highlight color on hover */
         }
         .container {
-            padding: 50px;
-            flex-grow: 1; /* Allow main content to grow */
+            padding: 50px; /* Adjusted for general content if needed, sections manage their own */
+            flex-grow: 1; /* Allow main content area (if any outside sections) to grow */
         }
         .section {
-            padding: 120px 20px; /* Adjusted padding for header visibility */
-            min-height: 100vh; /* Keep sections full height */
+            padding: 120px 20px 60px 20px; /* Adjusted padding for header visibility & bottom space */
+            min-height: 100vh; /* Keep sections full height capable */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -74,8 +74,8 @@
             width: 100%; /* Ensure sections take full width */
         }
          #home, #about, #gallery, #blogs, #contact {
-             background: linear-gradient(90deg, #000000, #262ba2);
-         }
+             background: linear-gradient(90deg, #000000, #262ba2); /* Ensure sections have background */
+        }
         .button {
             background-color: #1F4068;
             padding: 15px 30px;
@@ -102,7 +102,7 @@
         .gallery-grid img {
             width: 100%; /* Make image fill the container */
             height: auto; /* Maintain aspect ratio */
-            aspect-ratio: 1 / 1; /* Optional: Force square aspect ratio */
+            aspect-ratio: 1 / 1; /* Force square aspect ratio */
             object-fit: cover; /* Cover the area without distortion */
             border-radius: 8px;
             display: block; /* Remove extra space below image */
@@ -110,7 +110,7 @@
         }
          .gallery-grid img:hover {
              transform: scale(1.05); /* Slight zoom on hover */
-         }
+        }
 
         /* Contact Form Styles */
         .contact-form {
@@ -120,12 +120,19 @@
             width: 90%;
             max-width: 500px;
             text-align: left; /* Align labels/inputs left */
+            margin-top: 30px; /* Add margin to separate from title/p */
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #FFFFFF; /* Ensure label color is visible */
         }
         .contact-form input, .contact-form textarea {
             width: 100%;
             padding: 12px; /* Slightly larger padding */
             margin-bottom: 15px; /* Consistent margin */
-            margin-top: 5px;
+            margin-top: 5px; /* Space between label and input */
             border: none;
             border-radius: 5px;
             background-color: #e0e0e0; /* Lighter input background */
@@ -135,7 +142,7 @@
          .contact-form input::placeholder,
          .contact-form textarea::placeholder {
              color: #666; /* Placeholder text color */
-         }
+        }
         .contact-form button {
             background-color: #1F4068;
             color: white;
@@ -191,7 +198,6 @@
             margin-bottom: 15px;
             position: relative;
         }
-
         .footer-col ul {
             list-style: none;
             padding: 0;
@@ -209,7 +215,6 @@
             color: #7DF9FF; /* Updated highlight color on hover */
             padding-left: 5px; /* Slight indent on hover */
         }
-
         .social-links a {
             display: inline-block;
             color: #a8b2d1;
@@ -217,11 +222,13 @@
             margin-right: 15px; /* Space between icons */
             transition: color 0.3s, transform 0.3s;
         }
+        .social-links a:last-child {
+             margin-right: 0; /* Remove margin from last icon */
+        }
         .social-links a:hover {
             color: #7DF9FF; /* Updated highlight color on hover */
             transform: translateY(-2px); /* Slight lift on hover */
         }
-
         .footer-bottom {
             text-align: center;
             margin-top: 40px;
@@ -233,45 +240,107 @@
 
         /* Responsive Design */
         @media screen and (max-width: 768px) {
-            header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .nav-links {
-                margin-top: 10px;
-                justify-content: center; /* Center nav links */
-            }
-            .nav-links a {
-                font-size: 16px;
-                padding: 5px;
-            }
-            .section {
-                padding: 120px 15px 60px 15px; /* Adjusted padding for smaller screens */
-            }
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
-                gap: 10px;
-            }
-             #home .logo img { height: 60px; }
-             #home h1 { font-size: 40px; }
-             #home h2 { font-size: 18px; }
-             #home p { font-size: 17px; }
+             header {
+                 flex-direction: column;
+                 align-items: center;
+                 text-align: center;
+                 padding: 10px 15px; /* Slightly reduce padding */
+             }
+             .logo img {
+                  height: 60px; /* Adjust logo size */
+             }
+             .nav-links {
+                 margin-top: 10px;
+                 justify-content: center; /* Center nav links */
+                 gap: 10px; /* Reduce gap */
+             }
+             .nav-links a {
+                 font-size: 16px;
+                 padding: 5px 8px; /* Adjust padding */
+             }
+             .section {
+                 padding: 100px 15px 40px 15px; /* Adjust top padding for potentially smaller header */
+                 min-height: auto; /* Allow sections to shrink if content is short on mobile */
+             }
+              /* Home Section Adjustments */
+             #home {
+                  padding-top: 140px; /* Extra top padding for home section below stacked header */
+             }
+             #home div[style*="display: flex"] {
+                 flex-direction: column; /* Stack text and image */
+                 gap: 20px; /* Adjust gap for stacked layout */
+             }
+             #home h1 { font-size: 40px; text-align: center;}
+             #home h2 { font-size: 18px; text-align: center;}
+             #home p { font-size: 17px; text-align: center;}
              #home div[style*="flex: 1"] { min-width: 100%; text-align: center; }
-             #home div[style*="flex: 1"] img { width: 70%; max-width: 350px; margin: 20px auto 0; }
+             #home div[style*="flex: 1"] img {
+                 width: 80%; /* Adjust image size */
+                 max-width: 350px;
+                 margin: 20px auto 0;
+             }
+             #home .button { margin: 20px auto 0; } /* Center button */
 
-            .footer-container { flex-direction: column; align-items: center; text-align: center; }
-            .footer-col { min-width: 100%; margin-bottom: 30px; }
-             .footer-col p.tagline { margin-left: auto; margin-right: auto; }
-             .social-links { text-align: center; }
+              /* About Section Adjustments */
+             #about h1 { font-size: 30px; }
+             #about p { font-size: 16px; }
+             #about blockquote { font-size: 18px; }
+             #about div[style*="justify-content: center"] { gap: 20px; } /* Adjust gap between cards */
+             #about div[style*="width: 280px"] { width: 80%; max-width: 280px; } /* Allow cards to shrink */
+             #about div[style*="padding: 40px"] h2 { font-size: 20px; } /* Activity section title */
+             #about div[style*="padding: 25px"] { width: 45%; max-width: 180px; } /* Activity boxes */
+
+
+             .gallery-grid {
+                 grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+                 gap: 10px;
+             }
+             .footer-container {
+                 flex-direction: column;
+                 align-items: center;
+                 text-align: center;
+             }
+             .footer-col {
+                 min-width: 100%;
+                 margin-bottom: 30px;
+                 display: flex; /* Use flex for centering content */
+                 flex-direction: column;
+                 align-items: center;
+             }
+             .footer-col:last-child {
+                  margin-bottom: 0;
+             }
+              .footer-col .logo img { margin: 0 auto 15px auto; } /* Center logo */
+              .footer-col p.tagline { margin-left: auto; margin-right: auto; }
+              .social-links { text-align: center; }
         }
 
         @media screen and (max-width: 480px) {
-            .gallery-grid { grid-template-columns: 1fr; gap: 10px; }
+             header { padding: 10px; }
+             .logo img { height: 50px; }
+             .nav-links a { font-size: 14px; padding: 4px 6px; }
+             .section { padding: 90px 10px 30px 10px; } /* Further adjust padding */
+             #home { padding-top: 120px; } /* Adjust for smaller header */
              #home h1 { font-size: 32px; }
              #home h2 { font-size: 16px; }
              #home p { font-size: 15px; }
              #home div[style*="flex: 1"] img { width: 85%; max-width: 300px; }
+             .button { padding: 12px 25px; font-size: 16px; }
+
+             #about div[style*="padding: 25px"] { width: 80%; max-width: 200px; } /* Stack activity boxes */
+
+             .gallery-grid {
+                 grid-template-columns: 1fr; /* Single column on small screens */
+                 gap: 10px;
+             }
+             #blogs h1 { font-size: 28px; }
+             #blogs p { font-size: 16px; }
+             #blogs div[style*="flex: 1"] { min-width: 90%; } /* Allow blog cards to take more width */
+
+             .contact-form { padding: 20px; width: 100%; }
+             .contact-form input, .contact-form textarea { padding: 10px; font-size: 15px; }
+             .contact-form button { padding: 10px 20px; font-size: 15px; }
+
              .footer-col h4 { font-size: 16px; }
              .footer-col ul li a { font-size: 14px; }
              .social-links a { font-size: 18px; margin-right: 12px;}
@@ -283,7 +352,8 @@
     <header>
         <div class="logo">
             <a href="#home">
-                <img src="images/l1.png" alt="Apex Forage Logo"> </a>
+                <img src="images/l1.png" alt="Apex Forage Logo">
+            </a>
         </div>
         <nav class="nav-links">
             <a href="#home">Home</a>
@@ -298,39 +368,39 @@
         <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px; max-width: 1200px; margin: auto;">
             <div style="flex: 1; min-width: 300px; text-align: left;">
                 <h1 style="font-size: 60px; margin-bottom: 10px;">Forage Your Future with Apex Forage Community</h1>
-                <h2 style="font-size: 24px; color: #7DF9FF; margin-bottom: 20px;">Empowering Students Through Collaboration and Real-World Skills</h2> <p style="font-size: 21px; line-height: 1.6;">
+                <h2 style="font-size: 24px; color: #7DF9FF; margin-bottom: 20px;">Empowering Students Through Collaboration and Real-World Skills</h2>
+                <p style="font-size: 21px; line-height: 1.6;">
                     Join a dynamic network of students and professionals dedicated to growth, mentorship, and shaping the next generation leaders.
                 </p>
-                <a href="https://forms.gle/qrhbBSKXe26VWRUG9" class="button" style="margin-top: 30px;">Join the Journey</a>
+                <a href="https://forms.gle/qrhbBSKXe26VWRUG9" target="_blank" class="button" style="margin-top: 30px;">Join the Journey</a>
             </div>
-            <div style="flex: 1; min-width: 400px;">
-                <img src="images/23.png" alt="Students working together" style="width: 120%; max-width: 600px; height: auto; border-radius: 20px; display: block; margin: auto;"> </div>
+            <div style="flex: 1; min-width: 400px; text-align: center;"> <img src="images/23.png" alt="Students working together" style="width: 100%; max-width: 600px; height: auto; border-radius: 20px; display: block; margin: auto;"> </div>
         </div>
     </div>
 
-    <div id="about" class="section" style="padding: 40px 20px;">
-        <h1 style="text-align: center; color: #fcfdff;">From Learners to Leaders</h1>
-        <p style="max-width: 700px; margin: 20px auto; font-size: 18px; line-height: 1.6; color: #ffffff;">
+    <div id="about" class="section"> <h1 style="text-align: center; color: #fcfdff; margin-bottom: 20px;">From Learners to Leaders</h1>
+        <p style="max-width: 700px; margin: 0 auto 20px auto; font-size: 18px; line-height: 1.6; color: #ffffff;">
             At Apex Forage, we empower students to become professionals by nurturing their skills, fostering collaboration, and guiding them to thrive in their chosen fields.
         </p>
-        <blockquote style="margin: 30px auto; font-size: 20px; font-style: italic; color: #00BFFF; max-width: 600px; text-align: center;"> "Our main motto is to make students professionals in their respective domains."
+        <blockquote style="margin: 30px auto; font-size: 20px; font-style: italic; color: #00BFFF; max-width: 600px; text-align: center;">
+            "Our main motto is to make students professionals in their respective domains."
         </blockquote>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-top: 40px; gap: 30px;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-top: 40px; gap: 30px; width: 100%; max-width: 1000px;">
             <div style="background-color: #010130; padding: 30px; border-radius: 15px; width: 280px; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                <h3 style="color: #ffffff;">🤝 Connect</h3>
+                <h3 style="color: #ffffff; margin-bottom: 10px;">🤝 Connect</h3>
                 <p style="font-size: 16px; margin-top: 15px; color: #ffffff;">Meet mentors, peers, and industry experts who share your passion.</p>
             </div>
             <div style="background-color: #13055b; padding: 30px; border-radius: 15px; width: 280px; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                <h3 style="color: #ffffff;">🚀 Grow</h3>
+                <h3 style="color: #ffffff; margin-bottom: 10px;">🚀 Grow</h3>
                 <p style="font-size: 16px; margin-top: 15px; color: #ffffff;">Gain practical knowledge and real-world skills that set you apart.</p>
             </div>
             <div style="background-color: #262ba2; padding: 30px; border-radius: 15px; width: 280px; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                <h3 style="color: #ffffff;">🎯 Achieve</h3>
+                <h3 style="color: #ffffff; margin-bottom: 10px;">🎯 Achieve</h3>
                 <p style="font-size: 16px; margin-top: 15px; color: #ffffff;">Turn your passion into a career path with community support.</p>
             </div>
         </div>
-    
-        <div style="margin-top: 60px; text-align: center; background: linear-gradient(90deg, #5de0e6, #004aad, #000000); color: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);">
+
+        <div style="margin-top: 60px; text-align: center; background: linear-gradient(90deg, #5de0e6, #004aad, #000000); color: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); width: 90%; max-width: 900px;">
             <h2 style="margin-bottom: 20px;">Fueling Your Journey to Professionalism</h2>
             <p style="max-width: 700px; margin: 20px auto; font-size: 18px; line-height: 1.6;">
                 We actively organize:
@@ -338,62 +408,65 @@
             <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-top: 30px; gap: 30px;">
                 <div style="background-color: rgba(255, 255, 255, 0.8); color: #000000; padding: 25px; border-radius: 15px; width: 220px; text-align: center; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);">
                     <span style="font-size: 24px; margin-bottom: 10px; display: block;">🗣️</span>
-                    <h3 style="margin-top: 0;">Tech Talks</h3>
+                    <h3 style="margin-top: 0; margin-bottom: 5px;">Tech Talks</h3>
                     <p style="font-size: 15px;">Collaborative industry insights.</p>
                 </div>
                 <div style="background-color: rgba(255, 255, 255, 0.8); color: #000000; padding: 25px; border-radius: 15px; width: 220px; text-align: center; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);">
                     <span style="font-size: 24px; margin-bottom: 10px; display: block;">🛠️</span>
-                    <h3 style="margin-top: 0;">Workshops</h3>
+                    <h3 style="margin-top: 0; margin-bottom: 5px;">Workshops</h3>
                     <p style="font-size: 15px;">Hands-on practical skills.</p>
                 </div>
                 <div style="background-color: rgba(255, 255, 255, 0.8); color: #000000; padding: 25px; border-radius: 15px; width: 220px; text-align: center; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);">
                     <span style="font-size: 24px; margin-bottom: 10px; display: block;">🚀</span>
-                    <h3 style="margin-top: 0;">Bootcamps</h3>
+                    <h3 style="margin-top: 0; margin-bottom: 5px;">Bootcamps</h3>
                     <p style="font-size: 15px;">Intensive skill development.</p>
                 </div>
                 <div style="background-color: rgba(255, 255, 255, 0.8); color: #000000; padding: 25px; border-radius: 15px; width: 220px; text-align: center; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);">
                     <span style="font-size: 24px; margin-bottom: 10px; display: block;">💻</span>
-                    <h3 style="margin-top: 0;">Hackathons</h3>
+                    <h3 style="margin-top: 0; margin-bottom: 5px;">Hackathons</h3>
                     <p style="font-size: 15px;">Collaborative innovation.</p>
                 </div>
             </div>
         </div>
-    
+
         <div style="margin-top: 60px; text-align: center;">
             <img src="images/s1.png" alt="Community Image" style="max-width: 70%; height: auto; border-radius: 15px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);">
         </div>
         <div style="margin-top: 40px; text-align: center;">
-            <a href="https://forms.gle/qrhbBSKXe26VWRUG9" class="button" style="background-color: #4CAF50; color: white; padding: 15px 30px; text-decoration: none; border-radius: 10px; font-size: 18px; font-weight: bold; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">Join Now</a>
+            <a href="https://forms.gle/qrhbBSKXe26VWRUG9" target="_blank" class="button" style="background-color: #4CAF50; color: white; padding: 15px 30px; text-decoration: none; border-radius: 10px; font-size: 18px; font-weight: bold; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">Join Now</a>
         </div>
     </div>
 
     <div id="gallery" class="section">
         <h1 style="font-size: 36px; margin-bottom: 20px;">Our Gallery</h1>
-        <p style="font-size: 18px; margin-bottom: 40px;"></p>
-        <div class="gallery-grid">
+        <p style="font-size: 18px; margin-bottom: 40px;">Visual moments from our community events.</p> <div class="gallery-grid">
             <img src="images/g1.png" alt="Gallery image 1">
             <img src="images/g2.jpg" alt="Gallery image 2">
             <img src="images/g3.jpg" alt="Gallery image 3">
-    
-        </div>
+            </div>
     </div>
 
     <div id="blogs" class="section">
         <h1 style="font-size: 36px; margin-bottom: 20px;">Our Latest Blogs</h1>
         <p style="font-size: 18px; margin-bottom: 40px;">Explore insightful articles from our community.</p>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1200px; margin: auto;">
-            <div style="flex: 1; min-width: 300px; max-width: 350px; background-color: #112240; padding: 15px; border-radius: 10px; text-align: left; display: flex; flex-direction: column;">
-                <img src="images/bai.jpg" alt="Blog 1" style="width: 100%; border-radius: 8px; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 15px;"> <h2 style="font-size: 20px; margin-bottom: 10px;">AI Trends in the Global Market: What’s Driving the Future?</h2>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1200px; width: 90%; margin: auto;"> <div style="flex: 1; min-width: 300px; max-width: 350px; background-color: #112240; padding: 15px; border-radius: 10px; text-align: left; display: flex; flex-direction: column;">
+                <img src="images/bai.jpg" alt="Blog 1" style="width: 100%; border-radius: 8px; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 15px;">
+                <h2 style="font-size: 20px; margin-bottom: 10px;">AI Trends in the Global Market: What’s Driving the Future?</h2>
                 <p style="font-size: 16px; line-height: 1.5; flex-grow: 1; margin-bottom: 15px;">Artificial Intelligence (AI) is no longer a buzzword — it’s the driving force behind transformative change across every industry. From predictive analytics in healthcare to autonomous logistics in transportation, AI is reshaping how businesses operate and how consumers interact with the world. As we navigate 2025 and beyond, let’s explore the most influential AI trends shaping the global market.</p>
-                <a href="https://medium.com/@apexforagecom/ai-trends-in-the-global-market-whats-driving-the-future-6c10bb421035" target="_blank" style="display: block; margin-top: auto; color: #7DF9FF; font-weight: bold; text-decoration: none;">Read More →</a> </div>
+                <a href="https://medium.com/@apexforagecom/ai-trends-in-the-global-market-whats-driving-the-future-6c10bb421035" target="_blank" style="display: block; margin-top: auto; color: #7DF9FF; font-weight: bold; text-decoration: none;">Read More →</a>
+            </div>
             <div style="flex: 1; min-width: 300px; max-width: 350px; background-color: #112240; padding: 15px; border-radius: 10px; text-align: left; display: flex; flex-direction: column;">
-                 <img src="images/bb.jpg" alt="Blog 2" style="width: 100%; border-radius: 8px; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 15px;"> <h2 style="font-size: 20px; margin-bottom: 10px;">🔮 The Future of Blockchain Technology in 2025 and Beyond</h2>
+                 <img src="images/bb.jpg" alt="Blog 2" style="width: 100%; border-radius: 8px; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 15px;">
+                 <h2 style="font-size: 20px; margin-bottom: 10px;">🔮 The Future of Blockchain Technology in 2025 and Beyond</h2>
                  <p style="font-size: 16px; line-height: 1.5; flex-grow: 1; margin-bottom: 15px;">Blockchain technology has evolved beyond its initial association with cryptocurrencies, emerging as a transformative force across various industries. As we navigate through 2025, several key trends and developments are shaping the future of blockchain.​</p>
-                 <a href="https://medium.com/@apexforagecom/the-future-of-blockchain-technology-in-2025-and-beyond-393ebc743334" target="_blank" style="display: block; margin-top: auto; color: #7DF9FF; font-weight: bold; text-decoration: none;">Read More →</a> </div>
+                 <a href="https://medium.com/@apexforagecom/the-future-of-blockchain-technology-in-2025-and-beyond-393ebc743334" target="_blank" style="display: block; margin-top: auto; color: #7DF9FF; font-weight: bold; text-decoration: none;">Read More →</a>
+            </div>
             <div style="flex: 1; min-width: 300px; max-width: 350px; background-color: #112240; padding: 15px; border-radius: 10px; text-align: left; display: flex; flex-direction: column;">
-                <img src="images/bs.jpg" alt="Blog 3" style="width: 100%; border-radius: 8px; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 15px;"> <h2 style="font-size: 20px; margin-bottom: 10px;">India's Semiconductor Industry: Current Landscape and Future Outlook</h2>
+                <img src="images/bs.jpg" alt="Blog 3" style="width: 100%; border-radius: 8px; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 15px;">
+                <h2 style="font-size: 20px; margin-bottom: 10px;">India's Semiconductor Industry: Current Landscape and Future Outlook</h2>
                 <p style="font-size: 16px; line-height: 1.5; flex-grow: 1; margin-bottom: 15px;">India is making significant strides in establishing itself as a global hub for semiconductor manufacturing. With robust government initiatives, substantial investments, and strategic partnerships, the country is poised to play a pivotal role in the global semiconductor ecosystem.​</p>
-                <a href="https://medium.com/@apexforagecom/indias-semiconductor-industry-current-landscape-and-future-outlook-67e8719363c1" target="_blank" style="display: block; margin-top: auto; color: #7DF9FF; font-weight: bold; text-decoration: none;">Read More →</a> </div>
+                <a href="https://medium.com/@apexforagecom/indias-semiconductor-industry-current-landscape-and-future-outlook-67e8719363c1" target="_blank" style="display: block; margin-top: auto; color: #7DF9FF; font-weight: bold; text-decoration: none;">Read More →</a>
+            </div>
         </div>
         <a href="https://medium.com/@apexforagecom" target="_blank" class="button" style="margin-top: 40px;">View All Blogs</a>
     </div>
@@ -403,13 +476,13 @@
         <p style="font-size: 18px; margin-bottom: 30px; max-width: 600px;">Have questions or want to get involved? Send us a message!</p>
         <div class="contact-form">
             <form action="mailto:apexforagecom@gmail.com" method="post" enctype="text/plain">
-                <label for="name" style="display: block; margin-bottom: 5px; font-weight: bold;">Name</label>
+                <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-                <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">Email</label>
+                <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Your Email" required>
 
-                <label for="message" style="display: block; margin-bottom: 5px; font-weight: bold;">Message</label>
+                <label for="message">Message</label>
                 <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
 
                 <button type="submit">Send Message</button>
@@ -421,14 +494,15 @@
         <div class="footer-container">
             <div class="footer-col">
                 <div class="logo">
-                    <a href="#home"><img src="images/l1.png" alt="Apex Forage Logo"></a> </div>
+                    <a href="#home"><img src="images/l1.png" alt="Apex Forage Logo"></a>
+                </div>
                 <p class="tagline">Empowering Students. Shaping Professionals.</p>
                 <div class="social-links">
                     <a href="https://x.com/ApexForage" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.linkedin.com/company/apex-forage/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/apexforage/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a> 
-                    <a href="https://whatsapp.com/channel/0029Vb5bCwN1t90hxovw6329" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a> </div> 
-        
+                    <a href="https://www.instagram.com/apexforage/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://whatsapp.com/channel/0029Vb5bCwN1t90hxovw6329" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
 
             <div class="footer-col">
@@ -446,9 +520,9 @@
                 <h4>Community</h4>
                 <ul>
                     <li><a href="#blogs">Latest Articles</a></li>
-                     <li><a href="https://medium.com/@apexforagecom" target="_blank">Our Medium</a></li> <li><a href="https://forms.gle/qrhbBSKXe26VWRUG9">Join the Community</a></li>
-                    <li><a href="#">Events*</a></li>
-                </ul>
+                     <li><a href="https://medium.com/@apexforagecom" target="_blank">Our Medium</a></li>
+                     <li><a href="https://forms.gle/qrhbBSKXe26VWRUG9" target="_blank">Join the Community</a></li>
+                    <li><a href="#">Events*</a></li> </ul>
             </div>
 
             <div class="footer-col">
@@ -456,13 +530,12 @@
                 <ul>
                     <li><a href="#contact">Contact Form</a></li>
                     <li><a href="mailto:apexforagecom@gmail.com">Email Us</a></li>
-                     <li><a href="#">Privacy Policy*</a></li>
-                    <li><a href="#">Terms of Service*</a></li>
-                </ul>
+                     <li><a href="#">Privacy Policy*</a></li> <li><a href="#">Terms of Service*</a></li> </ul>
             </div>
         </div>
         <div class="footer-bottom">
-             &copy; 2025 Apex Forage. All rights reserved. </div>
+             &copy; 2025 Apex Forage. All rights reserved.
+        </div>
     </footer>
 
 </body>

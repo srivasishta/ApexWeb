@@ -1,6 +1,6 @@
 # 🌐 Apex Forage – Community Website
 
-Welcome to the official GitHub repository of **Apex Forage**, a vibrant student-led tech community. Our static website, live at [apexforage.in](https://apexforage.in/), serves as the central hub to showcase our mission, share insightful blogs, and highlight exciting events.
+Welcome to the official GitHub repository of **Apex Forage**, a vibrant student-led tech community. Our static website, live at (https://apexforage.in/), serves as the central hub to showcase our mission, share insightful blogs, and highlight exciting events.
 
 ---
 
